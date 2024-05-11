@@ -3,8 +3,8 @@ import mysql.connector
 class DB:
     def __init__(self):
         try:
-            self.conn = mysql.connector.connect(host="127.0.0.1",user="root",password="",
-                                                database="assignment")
+            self.conn = mysql.connector.connect(host="127.0.0.1",user="root",password="Aayushi@123",
+                                                database="assignment",auth_plugin='mysql_native_password')
             self.cur = self.conn.cursor()
         except:
             print("Connection error.")
