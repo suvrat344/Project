@@ -148,6 +148,7 @@ x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=
 # Machine Learning Model Fitting
 
 ## 1. Random Forest
+print("Random Forest Classifier")
 rf_classifier = RandomForestClassifier(n_estimators=200,random_state=42)
 rf_classifier.fit(x_train,y_train)
 y_pred = rf_classifier.predict(x_test)
@@ -165,7 +166,7 @@ for i,v in enumerate(["P1","P2","P3","P4"]):
     
     
 # 2. Xg Boost Classifier
-
+print("XgBoostClassifier")
 xgb_classifier = xgb.XGBClassifier(objective='multi:softmax',num_class=4)
 
 y = df_encoded["Approved_Flag"]
@@ -191,7 +192,7 @@ for i,v in enumerate(["P1","P2","P3","P4"]):
     
     
 # 3. Decision Tree
-
+print("DecisionTreeClassifier")
 dt_classifier = DecisionTreeClassifier(max_depth=20,min_samples_split=10)
 dt_classifier.fit(x_train,y_train)
 y_pred = dt_classifier.predict(x_test)
@@ -222,7 +223,7 @@ for i in columns_to_be_scaled:
     
     
 # Xg Boost Classifier
-
+print("XgBoost Tree Classifier After Standardisation")
 xgb_classifier = xgb.XGBClassifier(objective='multi:softmax',num_class=4)
 
 y = df_encoded["Approved_Flag"]
@@ -248,7 +249,7 @@ for i,v in enumerate(["P1","P2","P3","P4"]):
     
     
 # Hyperparameter Tuning In XgBoost
-
+print("Xg Boost Tree Classifier After Hyperparameter Tuning")
 x_train,x_test,y_train,y_test = train_test_split(x,y_encoded,test_size=0.2,random_state=42)
 
 xgb_model = xgb.XGBClassifier(objective="multi:softmax",num_class=4)
